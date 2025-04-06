@@ -1,13 +1,28 @@
 package com.example.projeto.data.entity;
 
-import jakarta.persistence.Entity;
+import jakarta.persistence.*;
 
 @Entity
+@Table(name = "pessoa")
 public class PessoaEntity {
+
+    @Id
+    @GeneratedValue(strategy = jakarta.persistence.GenerationType.IDENTITY)
+    private Long id;
+
+    @Column(name = "nome", nullable = false)
     private String nome;
+
+    @Column(name = "idade", nullable = false)
     private int idade;
+
+    @Column(name = "telefone", nullable = false)
     private String telefone;
+
+    @Column(name = "email", nullable = false)
     private String email;
+
+    @Column(name = "cpf", nullable = false, unique = true)
     private String cpf;
 
     public PessoaEntity() {
