@@ -1,6 +1,7 @@
 package com.example.projeto.data.dto;
 
 public class Pessoa {
+    private Long id;
     private String nome;
     private int idade;
     private String telefone;
@@ -10,12 +11,21 @@ public class Pessoa {
     public Pessoa() {
     }
 
-    public Pessoa(String nome, int idade, String telefone, String email, String cpf) {
+    public Pessoa(Long id, String nome, int idade, String telefone, String email, String cpf) {
+        this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.telefone = telefone;
         this.email = email;
         this.cpf = cpf;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

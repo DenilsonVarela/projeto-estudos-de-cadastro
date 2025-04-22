@@ -38,4 +38,23 @@ public class PessoaController {
 
     }
 
+    @GetMapping("/buscar/{id}")
+    public ResponseEntity<Pessoa> buscarPessoaPorId (@PathVariable Long id) {
+
+        List<Pessoa> pessoa = pessoaService.buscarPessoa();
+
+        for (int i = 0; i < pessoa.size(); i++) {
+            if (pessoa.get(i).getId() == id) {
+                return ResponseEntity
+                        .status(HttpStatus.OK)
+                        .body(pessoa.get(i));
+            }
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+
+    }
+
 }

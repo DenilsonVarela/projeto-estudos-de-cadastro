@@ -10,4 +10,6 @@ public interface PessoaService {
 
     List<Pessoa> buscarPessoa ();
 
+    Pessoa buscarPessoaPorId (Long id);
+
 }

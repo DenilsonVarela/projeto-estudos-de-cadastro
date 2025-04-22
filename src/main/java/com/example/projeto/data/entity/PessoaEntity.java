@@ -28,12 +28,21 @@ public class PessoaEntity {
     public PessoaEntity() {
     }
 
-    public PessoaEntity(String nome, int idade, String telefone, String email, String cpf) {
+    public PessoaEntity(Long id, String nome, int idade, String telefone, String email, String cpf) {
+        this.id = id;
         this.nome = nome;
         this.idade = idade;
         this.telefone = telefone;
         this.email = email;
         this.cpf = cpf;
+    }
+
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id) {
+        this.id = id;
     }
 
     public String getNome() {

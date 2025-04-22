@@ -45,9 +45,19 @@ public class PessoaServiceImpl implements PessoaService {
           pessoas.add(pessoa);
 
         }
-
         return pessoas;
+    }
 
+    @Override
+    public Pessoa buscarPessoaPorId (Long id) {
+
+        PessoaEntity pEntity = pessoaRepository.findById(id).orElse(null);
+
+        if (pEntity != null) {
+            return pessoaMapper.convertePessoaEntityParaPessoa(pEntity);
+        } else {
+            return null;
+        }
     }
 
 

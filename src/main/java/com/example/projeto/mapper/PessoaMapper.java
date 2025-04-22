@@ -12,6 +12,7 @@ public class PessoaMapper {
 
         PessoaEntity pessoaEntity = new PessoaEntity();
 
+        pessoaEntity.setId(pessoa.getId());
         pessoaEntity.setNome(pessoa.getNome());
         pessoaEntity.setIdade(pessoa.getIdade());
         pessoaEntity.setTelefone(pessoa.getTelefone());
@@ -26,6 +27,7 @@ public class PessoaMapper {
 
         Pessoa pessoa = new Pessoa();
 
+        pessoa.setId(pessoaEntity.getId());
         pessoa.setNome(pessoaEntity.getNome());
         pessoa.setIdade(pessoaEntity.getIdade());
         pessoa.setTelefone(pessoaEntity.getTelefone());
