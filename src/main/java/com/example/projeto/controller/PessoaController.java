@@ -57,4 +57,24 @@ public class PessoaController {
 
     }
 
+    @DeleteMapping("/deletar/{id}")
+    public ResponseEntity<Void> deletarPessoaPorId (@PathVariable Long id) {
+
+        List<Pessoa> pessoa = pessoaService.buscarPessoa();
+
+        for (int i = 0; i < pessoa.size(); i++) {
+            if (pessoa.get(i).getId() == id) {
+                pessoaService.deletarPessoaPorId(id);
+                return ResponseEntity
+                        .status(HttpStatus.OK)
+                        .build();
+            }
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+
+    }
+
 }

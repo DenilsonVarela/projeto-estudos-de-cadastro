@@ -12,4 +12,6 @@ public interface PessoaService {
 
     Pessoa buscarPessoaPorId (Long id);
 
+    void deletarPessoaPorId (Long id);
+
 }

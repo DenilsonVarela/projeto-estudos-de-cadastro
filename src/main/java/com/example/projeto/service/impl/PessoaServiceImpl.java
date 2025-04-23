@@ -60,5 +60,12 @@ public class PessoaServiceImpl implements PessoaService {
         }
     }
 
+    @Override
+    public void deletarPessoaPorId (Long id) {
+
+        pessoaRepository.deleteById(id);
+
+    }
+
 
 }
