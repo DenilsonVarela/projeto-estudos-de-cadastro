@@ -77,4 +77,25 @@ public class PessoaController {
 
     }
 
+    @PutMapping("/atualizar/{id}")
+    public ResponseEntity<Pessoa> atualizarPessoaPorId (@PathVariable Long id, @RequestBody Pessoa pessoa) {
+
+        List<Pessoa> pessoa1 = pessoaService.buscarPessoa();
+
+        for (int i = 0; i < pessoa1.size(); i++) {
+            if (pessoa1.get(i).getId() == id) {
+                pessoa.setId(id);
+                Pessoa pessoaAtualizada = pessoaService.salvarPessoa(pessoa);
+                return ResponseEntity
+                        .status(HttpStatus.OK)
+                        .body(pessoaAtualizada);
+            }
+        }
+
+        return ResponseEntity
+                .status(HttpStatus.NOT_FOUND)
+                .build();
+
+    }
+
 }
